@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Folder, { FolderProps } from './Folder';
 
@@ -40,13 +40,34 @@ const tree = [
 ];
 
 function App() {
+  const [foldersTree, setFoldersTree] = useState(tree);
+
+  const onClick = (title: string) => {
+    setFoldersTree((prevTree) => {
+      return prevTree.map((folder) => {
+        if (folder.title === title) {
+          folder.children.push({
+            title: 'new item',
+          });
+        }
+
+        folder.children = folder.children.map((child) => {
+          return child;
+        });
+
+        return folder;
+      });
+    });
+  };
+
   return (
     <>
-      {tree.map((folder: FolderProps) => (
+      {foldersTree.map((folder: FolderProps) => (
         <Folder
           title={folder.title}
           children={folder.children}
           key={folder.title}
+          onClick={onClick}
         />
       ))}
     </>
