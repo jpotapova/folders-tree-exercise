@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-interface FolderProps {
+export interface FolderProps {
   title: string;
   children?: Array<FolderProps>;
 }
@@ -11,7 +11,7 @@ function Folder(props: FolderProps) {
     <div className="folder">
       <div className="title">{props.title}</div>
       <div className="children">
-        {props.children?.map((childFolder) => (
+        {props.children?.map((childFolder: FolderProps) => (
           <Folder title={childFolder.title} key={childFolder.title} />
         ))}
       </div>

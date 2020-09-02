@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Folder from './Folder';
+import Folder, { FolderProps } from './Folder';
 
 import './App.css';
 
@@ -32,7 +32,7 @@ const tree = [
 function App() {
   return (
     <>
-      {tree.map((folder) => (
+      {tree.map((folder: FolderProps) => (
         <Folder
           title={folder.title}
           children={folder.children}
