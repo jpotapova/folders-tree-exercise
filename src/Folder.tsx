@@ -12,7 +12,11 @@ function Folder(props: FolderProps) {
       <div className="title">{props.title}</div>
       <div className="children">
         {props.children?.map((childFolder: FolderProps) => (
-          <Folder title={childFolder.title} key={childFolder.title} />
+          <Folder
+            title={childFolder.title}
+            children={childFolder.children}
+            key={childFolder.title}
+          />
         ))}
       </div>
     </div>

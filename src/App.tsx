@@ -21,6 +21,16 @@ const tree = [
     children: [
       {
         title: 'folder2.1',
+        children: [
+          {
+            title: 'folder2.1.1',
+            children: [
+              {
+                title: 'folder2.1.1.1',
+              },
+            ],
+          },
+        ],
       },
       {
         title: 'folder2.2',
