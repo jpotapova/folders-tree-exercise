@@ -2,20 +2,21 @@ import uniqueId from 'lodash/uniqueId';
 import React, { useState } from 'react';
 
 import FoldersTree from 'components/FoldersTree';
+import { FolderProps } from 'interfaces';
 
 import folders from './initialData';
 
 function App() {
-  const [foldersTree, setFoldersTree] = useState(folders);
+  const [foldersTree, setFoldersTree] = useState<Array<FolderProps>>(folders);
 
   const handleAdd = (id: number, value: string) => {
-    const newFolder = {
-      id: uniqueId(),
+    const newFolder: FolderProps = {
+      id: parseInt(uniqueId(), 10),
       title: value,
       children: [],
     };
 
-    const insertNewFolder = (folder: any) => {
+    const insertNewFolder = (folder: FolderProps): FolderProps => {
       if (folder.id === id) {
         return {
           ...folder,
@@ -29,7 +30,7 @@ function App() {
       };
     };
 
-    setFoldersTree((prevTree) => {
+    setFoldersTree((prevTree: Array<FolderProps>) => {
       return prevTree.map(insertNewFolder);
     });
   };
