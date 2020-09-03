@@ -11,7 +11,7 @@ interface AddFolderFormComponentProps {
 function AddFolderForm(props: AddFolderFormComponentProps) {
   const { show, id, onClick } = props;
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string>('');
 
   useEffect(() => {
     setInputValue('');
@@ -25,7 +25,7 @@ function AddFolderForm(props: AddFolderFormComponentProps) {
     setInputValue(e.target.value);
   };
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     onClick(id, inputValue);
   };
 

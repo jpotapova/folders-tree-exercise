@@ -30,9 +30,11 @@ function App() {
       };
     };
 
-    setFoldersTree((prevTree: Array<FolderProps>) => {
-      return prevTree.map(insertNewFolder);
-    });
+    setFoldersTree(
+      (prevTree: Array<FolderProps>): Array<FolderProps> => {
+        return prevTree.map(insertNewFolder);
+      }
+    );
   };
 
   return <FoldersTree folders={foldersTree} onAdd={handleAdd} />;

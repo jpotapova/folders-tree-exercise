@@ -16,10 +16,10 @@ interface FolderComponentProps {
 function Folder(props: FolderComponentProps) {
   const { folder, onAdd } = props;
 
-  const [showInput, setShowInput] = useState(false);
+  const [showInput, setShowInput] = useState<boolean>(false);
 
   const handleAddClick = () => {
-    setShowInput((prevShowInput) => {
+    setShowInput((prevShowInput: boolean): boolean => {
       return !prevShowInput;
     });
   };

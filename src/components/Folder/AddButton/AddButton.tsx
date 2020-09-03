@@ -4,7 +4,7 @@ import './index.css';
 
 interface AddButtonComponentProps {
   expanded: boolean;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 function AddButton(props: AddButtonComponentProps) {
