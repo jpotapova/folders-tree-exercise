@@ -1,4 +1,4 @@
-export default interface FolderProps {
+export interface FolderProps {
   id: number;
   title: string;
   children: Array<FolderProps>;

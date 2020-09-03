@@ -1,4 +1,4 @@
-import FolderProps from 'interfaces/Folder';
+import { FolderProps } from 'interfaces';
 
 const folders: Array<FolderProps> = [
   {

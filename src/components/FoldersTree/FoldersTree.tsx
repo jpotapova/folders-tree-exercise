@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Folder from 'components/Folder';
-import FolderProps from 'interfaces/Folder';
+import { FolderProps } from 'interfaces';
 
 interface FoldersTreeComponenttProps {
   folders: Array<FolderProps> | undefined;
