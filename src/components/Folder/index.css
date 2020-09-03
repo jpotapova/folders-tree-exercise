@@ -2,36 +2,15 @@
   margin-left: 20px;
 }
 
-.placeholder {
+.title__placeholder {
   font-style: italic;
 }
 
-.name-input {
-  margin-left: 20px;
-  margin-bottom: 5px;
-  position: relative;
-}
-
-.relation-icon {
-  position: absolute;
-  left: -20px;
-}
-
-.subfolder-icon {
-  margin-right: 5px;
-}
-
-.add-button {
-  border: none;
-  background: transparent;
-  font-size: 20px;
-}
-
-.add {
+.title__button {
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.title:hover .add {
+.title:hover .title__button {
   opacity: 1;
 }
