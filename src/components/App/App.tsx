@@ -1,16 +1,16 @@
+import uniqueId from 'lodash/uniqueId';
 import React, { useState } from 'react';
 
-import FolderProps from 'interfaces/Folder';
+import FoldersTree from 'components/FoldersTree';
 
 import folders from './initialData';
-import FoldersTree from 'components/FoldersTree';
 
 function App() {
   const [foldersTree, setFoldersTree] = useState(folders);
 
   const handleAdd = (id: number, value: string) => {
     const newFolder = {
-      id: 999,
+      id: uniqueId(),
       title: value,
       children: [],
     };
