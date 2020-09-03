@@ -5,20 +5,15 @@ import FolderProps from 'interfaces/Folder';
 
 interface FoldersTreeComponenttProps {
   folders: Array<FolderProps> | undefined;
+  onAdd: (id: number, value: string) => void;
 }
 
 function FoldersTree(props: FoldersTreeComponenttProps) {
-  const { folders } = props;
+  const { folders, onAdd } = props;
   return (
     <div>
       {folders?.map((folder: FolderProps) => (
-        <Folder
-          folder={folder}
-          key={folder.id}
-          onAddClick={(id) => {
-            console.log('id');
-          }}
-        />
+        <Folder folder={folder} key={folder.id} onAdd={onAdd} />
       ))}
     </div>
   );

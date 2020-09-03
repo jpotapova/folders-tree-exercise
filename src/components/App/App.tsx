@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import Folder from 'components/Folder';
 import FolderProps from 'interfaces/Folder';
 
 import folders from './initialData';
@@ -8,6 +7,10 @@ import FoldersTree from 'components/FoldersTree';
 
 function App() {
   const [foldersTree, setFoldersTree] = useState<Array<FolderProps>>(folders);
+
+  const handleAdd = (id: number, value: string) => {
+    console.log(id, value);
+  };
 
   // const onClick = (title: string) => {
   //   setFoldersTree((prevTree: Array<FolderProps>) => {
@@ -26,7 +29,7 @@ function App() {
   //   });
   // };
 
-  return <FoldersTree folders={foldersTree} />;
+  return <FoldersTree folders={foldersTree} onAdd={handleAdd} />;
 }
 
 export default App;

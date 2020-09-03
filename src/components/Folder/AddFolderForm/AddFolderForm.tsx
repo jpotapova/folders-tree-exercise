@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 
 interface AddFolderFormComponentProps {
+  id: number;
   show: boolean;
+  onClick: (id: number, value: string) => void;
 }
 
 function AddFolderForm(props: AddFolderFormComponentProps) {
-  const { show } = props;
+  const { show, id, onClick } = props;
 
   const [inputValue, setInputValue] = useState('');
 
@@ -15,13 +17,17 @@ function AddFolderForm(props: AddFolderFormComponentProps) {
     setInputValue('');
   }, [show]);
 
+  if (!show) {
+    return null;
+  }
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  if (!show) {
-    return null;
-  }
+  const handleClick = (e: any) => {
+    onClick(id, inputValue);
+  };
 
   return (
     <div className="add-folder">
@@ -32,7 +38,11 @@ function AddFolderForm(props: AddFolderFormComponentProps) {
         value={inputValue}
         onChange={handleInputChange}
       />
-      <button type="button" disabled={inputValue.length === 0}>
+      <button
+        type="button"
+        disabled={inputValue.length === 0}
+        onClick={handleClick}
+      >
         Save
       </button>
     </div>

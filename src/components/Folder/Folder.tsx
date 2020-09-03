@@ -10,11 +10,11 @@ import './index.css';
 
 interface FolderComponentProps {
   folder: FolderProps;
-  onAddClick: (id: number) => void;
+  onAdd: (id: number, value: string) => void;
 }
 
 function Folder(props: FolderComponentProps) {
-  const { folder, onAddClick } = props;
+  const { folder, onAdd } = props;
 
   const [showInput, setShowInput] = useState(false);
 
@@ -22,6 +22,11 @@ function Folder(props: FolderComponentProps) {
     setShowInput((prevShowInput) => {
       return !prevShowInput;
     });
+  };
+
+  const handleSaveClick = (id: number, value: string) => {
+    onAdd(id, value);
+    setShowInput(false);
   };
 
   return (
@@ -32,8 +37,12 @@ function Folder(props: FolderComponentProps) {
         )}
         <AddButton expanded={showInput} onClick={handleAddClick} />
       </span>
-      <AddFolderForm show={showInput} />
-      <FoldersTree folders={folder.children} />
+      <AddFolderForm
+        show={showInput}
+        id={folder.id}
+        onClick={handleSaveClick}
+      />
+      <FoldersTree folders={folder.children} onAdd={onAdd} />
     </div>
   );
 }
