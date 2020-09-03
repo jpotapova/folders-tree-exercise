@@ -8,10 +8,12 @@ const folders: Array<FolderProps> = [
       {
         id: 2,
         title: 'folder1.1',
+        children: [],
       },
       {
         id: 3,
         title: 'folder1.2',
+        children: [],
       },
     ],
   },
@@ -30,6 +32,7 @@ const folders: Array<FolderProps> = [
               {
                 id: 7,
                 title: 'folder2.1.1.1',
+                children: [],
               },
             ],
           },
@@ -38,6 +41,7 @@ const folders: Array<FolderProps> = [
       {
         id: 8,
         title: 'folder2.2',
+        children: [],
       },
     ],
   },

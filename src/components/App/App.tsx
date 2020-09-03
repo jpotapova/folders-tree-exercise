@@ -6,28 +6,33 @@ import folders from './initialData';
 import FoldersTree from 'components/FoldersTree';
 
 function App() {
-  const [foldersTree, setFoldersTree] = useState<Array<FolderProps>>(folders);
+  const [foldersTree, setFoldersTree] = useState(folders);
 
   const handleAdd = (id: number, value: string) => {
-    console.log(id, value);
+    const newFolder = {
+      id: 999,
+      title: value,
+      children: [],
+    };
+
+    const insertNewFolder = (folder: any) => {
+      if (folder.id === id) {
+        return {
+          ...folder,
+          children: [newFolder, ...folder.children],
+        };
+      }
+
+      return {
+        ...folder,
+        children: folder.children.map(insertNewFolder),
+      };
+    };
+
+    setFoldersTree((prevTree) => {
+      return prevTree.map(insertNewFolder);
+    });
   };
-
-  // const onClick = (title: string) => {
-  //   setFoldersTree((prevTree: Array<FolderProps>) => {
-  //     return prevTree.map((folder) => {
-  // if (folder.title === title) {
-  //   folder.children?.push({
-  //     title: 'new item',
-  //   });
-  // }
-
-  // folder.children = folder.children?.map((child) => {
-  //   return child;
-  // });
-  //       return folder;
-  //     });
-  //   });
-  // };
 
   return <FoldersTree folders={foldersTree} onAdd={handleAdd} />;
 }

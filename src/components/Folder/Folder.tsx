@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import FoldersTree from 'components/FoldersTree';
 import FolderProps from 'interfaces/Folder';
 
-import AddFolderForm from './AddFolderForm';
 import AddButton from './AddButton';
+import AddFolderForm from './AddFolderForm';
 
 import './index.css';
 
