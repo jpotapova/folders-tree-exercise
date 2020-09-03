@@ -4,6 +4,7 @@ import Folder from 'components/Folder';
 import FolderProps from 'interfaces/Folder';
 
 import folders from './initialData';
+import FoldersTree from 'components/FoldersTree';
 
 function App() {
   const [foldersTree, setFoldersTree] = useState<Array<FolderProps>>(folders);
@@ -25,19 +26,7 @@ function App() {
   //   });
   // };
 
-  return (
-    <>
-      {foldersTree.map((folder: FolderProps) => (
-        <Folder
-          folder={folder}
-          key={folder.id}
-          onAddClick={(id) => {
-            console.log('id');
-          }}
-        />
-      ))}
-    </>
-  );
+  return <FoldersTree folders={foldersTree} />;
 }
 
 export default App;

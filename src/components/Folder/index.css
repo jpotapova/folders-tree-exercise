@@ -9,6 +9,12 @@
 .name-input {
   margin-left: 20px;
   margin-bottom: 5px;
+  position: relative;
+}
+
+.relation-icon {
+  position: absolute;
+  left: -20px;
 }
 
 .subfolder-icon {

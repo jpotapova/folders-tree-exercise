@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import FoldersTree from 'components/FoldersTree';
 import FolderProps from 'interfaces/Folder';
 
 import './index.css';
@@ -40,10 +41,9 @@ function Folder(props: FolderComponentProps) {
           </button>
         </span>
       </span>
-
       {showInput && (
         <div className="name-input">
-          &#9492;
+          <span className="relation-icon">&#9492;</span>
           <input
             type="text"
             placeholder="type child name"
@@ -55,17 +55,7 @@ function Folder(props: FolderComponentProps) {
           </button>
         </div>
       )}
-      {folder.children && (
-        <div>
-          {folder.children.map((childFolder: FolderProps) => (
-            <Folder
-              folder={childFolder}
-              key={childFolder.title}
-              onAddClick={onAddClick}
-            />
-          ))}
-        </div>
-      )}
+      <FoldersTree folders={folder.children} />
     </div>
   );
 }
